@@ -77,4 +77,4 @@ action classification task에서의 결과는 다음과 같습니다. 평가 데
 
 
 
-출처: [ChaCha's blog]((https://chacha95.github.io/2019-07-20-VideoUnderstanding6/))
+출처: [ChaCha's blog](https://chacha95.github.io/2019-07-20-VideoUnderstanding6)
