@@ -29,13 +29,11 @@ SGD(확률적경사하강법)를 이해하기 위해선, 먼저 Gradient Descent
 * 여기서 Loss Function(손실함수)라는 함수가 나오는데(종류도 아주 여러가지이다) 실제 정답과 지금 대입한 결과의 차이를 알려준다(틀린정도를 나타냄).
 이제 이 손실값을 줄여 적정한 weight값을 찾으면 된다.(Loss Function값 최소화)
 
-    ~~수학적인부분은 패스한다.~~
-
-    현재 임의의 가중치와 함수를 통해서 지금 가진 데이터를 다 넣어 주게 되면 전체 에러가 계산이 되고 마지막으로 미분을 해주면 손실값을 줄이는 방향이 나오게 된다. 방향이 나오면 그 방향으로 Learning Rate(학습률)을 곱해주고 이동시킨다.
+현재 임의의 가중치와 함수를 통해서 지금 가진 데이터를 다 넣어 주게 되면 전체 에러가 계산이 되고 마지막으로 미분을 해주면 손실값을 줄이는 방향이 나오게 된다. 방향이 나오면 그 방향으로 Learning Rate(학습률)을 곱해주고 이동시킨다.
 
 <hr/>
 
-* Learning Rate(학습률) 또는 Step size(보폭)는 얼마나 멀리 가중치를 이동시킬지를 결정한다.
+    * Learning Rate(학습률) 또는 Step size(보폭)는 얼마나 멀리 가중치를 이동시킬지를 결정한다.
 보폭이 너무 크면 우리가 목표하는 지점 반대로 넘어갈수도있고 반대로
 너무 작으면 정해놓은 반복횟수 안에 최솟값을 구하지 못하고 학습이 끝나는 경우가 있다.
 
@@ -47,8 +45,8 @@ SGD(확률적경사하강법)를 이해하기 위해선, 먼저 Gradient Descent
 
 <hr/>
 
-* 전체 Train-set을 가지고 계산하게 되면 한번 할때마다 모든 데이터셋 계산을 해야한다.
-이를 해결하기 위해 전체 데이터(Batch) 대신 일부 데이터(Mini-Batch)로 계산하는 방법이 SGD(Stochastic Gradient Descent)확률적 경사하강법이다.
+    * 전체 Train-set을 가지고 계산하게 되면 한번 할때마다 모든 데이터셋 계산을 해야한다.
+    이를 해결하기 위해 전체 데이터(Batch) 대신 일부 데이터(Mini-Batch)로 계산하는 방법이 SGD(Stochastic Gradient Descent)확률적 경사하강법이다.
 대신 여기서 선택되는 데이터가 무작위로 선택되어 노이즈가 아주 심하다.(아래그래프참조)
 (전체 Batch로 계산할때보다 다소 부정확하게 나올수있으나, 결과적으로는 Batch값에 수렴하고 계산속도는 더 빠르다)
 
@@ -61,21 +59,24 @@ SGD만을 가지고 최적화를 할 경우 그래프가 이런식으로 진동�
 
 <hr/>
 
-* momentum(가속도) : 기울기의 방향으로 힘을 받아 물체가 가속
+    * momentum(가속도) : 기울기의 방향으로 힘을 받아 물체가 가속
 기울기 방향만이 아닌 Optimum을 향한 직선의 움직임도 같이 적용이 된다고 본다. 그렇게 모멘텀을 활용해 비효율적인 움직임을 최적화 한것이 밑의 그래프.
 
 <hr/>
 
 ![sgdwmoment](./image/sgdwmoment.png "sgdwmoment")
 
-* Weight decay(가중치 감소)
-	기계가 학습을 하면 할수록 가중치들이 점점 증가하게 된다.  이 과정에서 Overfitting이라는 것이 발생하게 되는데, 학습데이터에 영향을 많이 받아 모델이 데이터에 맞춰지는 현상이다.(새로운 데이터 예측이 불가하다)
+    * Weight decay(가중치 감소)
+기계가 학습을 하면 할수록 가중치들이 점점 증가하게 된다.  이 과정에서 Overfitting이라는 것이 발생하게 되는데, 학습데이터에 영향을 많이 받아 모델이 데이터에 맞춰지는 현상이다.(새로운 데이터 예측이 불가하다)
+
 	이걸 방지할수있게 제안된것이 가중치감소이고 필요이상으로 큰값을 가지는 가중치들에 대해 패널티를 부여해 값이 너무 커지는것을 방지하는것입니다.
 
+<hr/>
 
-* Gradient Clipping : 
+    * Gradient Clipping : 
 비선형 목적함수(recurrent network, DNN등)의 경우 미분값이 굉장히 커지게 되는경우가 있다. 
-weight(가중치)를 곱하다 보면 기울기가 예상치 보다 훨씬 커지는 경우가 있는데, (그래프가 절벽처럼 뚝 떨어짐) 이러한 case를 방지하기 위해 나온것이 clipping
+    
+    weight(가중치)를 곱하다 보면 기울기가 예상치 보다 훨씬 커지는 경우가 있는데, (그래프가 절벽처럼 뚝 떨어짐) 이러한 case를 방지하기 위해 나온것이 clipping
 
 ![gradientclipping](./image/gradientclipping.png "gradientclipping")
 
@@ -83,9 +84,9 @@ weight(가중치)를 곱하다 보면 기울기가 예상치 보다 훨씬 커�
 
 <hr/>
 
-* Learning rate warmup
+    * Learning rate warmup
 
-learning rate를 초기에 설정한 임의의 값을 시작으로 줄여나가는 방식으로 일반적으로 알고 있는데, 이와는 반대로 초기값을 0으로 설정하고 이를 linear하게 키워주는 방식이다.
+    learning rate를 초기에 설정한 임의의 값을 시작으로 줄여나가는 방식으로 일반적으로 알고 있는데, 이와는 반대로 초기값을 0으로 설정하고 이를 linear하게 키워주는 방식이다.
 
 1. 학습 초반에는 모든 파라미터라 랜덤 값으로 초기화된 상태이다.
     
@@ -113,17 +114,19 @@ lr=i×ηm , 배치 : i (1≤i≤m ), 초기 lr : η
 
 <hr/>
 
-* Learning rate decay
+    * Learning rate decay
 
 이전에는 learning rate를 grid search로 찾아 가장 오차를 적게하는 learning rate로 고정을 시켰다. 그러나 이는 실제 오차함수의 최적해를 찾는 과정을 보면 알맞지 않은 방법이다. 
 
 이를 골짜기를 향해 내려가는 것에 비유해보면 걸음폭을 일정하게 가지만 골짜기로 내려 갈수록 이 걸음폭을 줄여야만 가장 움푹 패인 곳에 도달할 수 있기 때문이다.
 
-다시말해 최적해를 구하기 위해서는 각 스텝(iteration)이 진행될 떄마다 learning rate(보폭)을 줄여야 한다는 말이다.
+    다시말해 최적해를 구하기 위해서는 각 스텝(iteration)이 진행될 떄마다 learning rate(보폭)을 줄여야 한다는 말이다.
 
-* Learning rate scheduler
+<hr/>
 
-Train 단계에서 learning rate를 직접 설정하기 보다 epoch의 정도나 epoch의 조건에 따라 learning rate를 자동으로 조절하여 학습시킬 수 있는 방법이 있다.
+    * Learning rate scheduler
+
+    Train 단계에서 learning rate를 직접 설정하기 보다 epoch의 정도나 epoch의 조건에 따라 learning rate를 자동으로 조절하여 학습시킬 수 있는 방법이 있다.
 
 참조: [tf.keras.callbacks.LearningRateScheduler](https://dodonam.tistory.com/178)
 <hr/>
