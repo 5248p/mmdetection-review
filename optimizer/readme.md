@@ -44,17 +44,14 @@ SGD(확률적경사하강법)를 이해하기 위해선, 먼저 Gradient Descent
 <hr/>
 
 그런데 여기서 문제는 한번 계산할때마다 모든 데이터값을 전부 계산하기 떄문에 시간이 많이 걸린다는것이다. 이 문제를 해결하기 위해 나온것이
-## Stochastic Gradient Descent.
 
-<hr/>
+## Stochastic Gradient Descent.
 
     전체 Train-set을 가지고 계산하게 되면 한번 할때마다 모든 데이터셋 계산을 해야한다.
     이를 해결하기 위해 전체 데이터(Batch) 대신 일부 데이터(Mini-Batch)로 계산하는 방법이 SGD(Stochastic Gradient Descent)확률적 경사하강법이다.
 
 대신 여기서 선택되는 데이터가 무작위로 선택되어 노이즈가 아주 심하다.(아래그래프참조)
 (전체 Batch로 계산할때보다 다소 부정확하게 나올수있으나, 결과적으로는 Batch값에 수렴하고 계산속도는 더 빠르다)
-
-<hr/>
 
 ![sgdwomoment](./image/sgdwomoment.png "sgdwomoment")
 
@@ -68,9 +65,9 @@ SGD만을 가지고 최적화를 할 경우 그래프가 이런식으로 진동�
 
 기울기 방향만이 아닌 Optimum을 향한 직선의 움직임도 같이 적용이 된다고 본다. 그렇게 모멘텀을 활용해 비효율적인 움직임을 최적화 한것이 밑의 그래프.
 
-<hr/>
-
 ![sgdwmoment](./image/sgdwmoment.png "sgdwmoment")
+
+<hr/>
 
 ## Weight decay(가중치 감소)
 
