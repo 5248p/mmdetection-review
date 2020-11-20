@@ -23,6 +23,7 @@ Link: [Youtube](https://www.youtube.com/watch?v=ysGM3CfBVpU)
 
  * end-to-end   
 신경망은 한쪽 끝에서 입력을 받아들이고 다른 쪽 끝에서 출력을 생성하는데, 입력 및 출력을 직접 고려하여 네트워크 가중치를 최적화 하는 학습을 종단 간 학습(End-to-end Learning) 이라고 한다.  
+Link: [용용님의블로그](https://m.blog.naver.com/wjddydgns99/222053470352)
 
 <hr/>
 

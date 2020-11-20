@@ -15,6 +15,8 @@ object detection은 더 깊은 구조를 가질 수록 성능이 좋다고 나�
 
 ## 네트워크 인풋
 
+입력 양식의 네 가지 유형의 예 : RGB 이미지, RGB 차이, optical flow field (x, y 방향) 및 warped optical flow (x, y 방향)
+
 Single RGB image은 전후 프레임에 대한 정보가 부족하다. 그래서 여기서 사용한 것이 Stacked RGB Difference.
 또 다른 인풋으로는 Warped optical flow field가 사용 되었는데, 이걸로 불필요한 카메라 모션을 제거했다. 
 
