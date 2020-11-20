@@ -111,3 +111,6 @@ modalities (RGB+Flow) and three input modalities (RGB+Flow+Warped Flow).
 |KVMF [41] 63.3|KVMF [41] 93.1%|
 |TSN (2 modalities) 68.5%|TSN (2 modalities) 94.0%|
 |TSN (3 modalities) 69.4%|TSN (3 modalities) 94.2%|
+
+
+참조:[arxiv](https://arxiv.org/pdf/1608.00859.pdf), [dongyoung](https://dongsarchive.tistory.com/63), [chacha's blog](https://chacha95.github.io/2019-07-02-VideoUnderstanding2/)
