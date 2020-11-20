@@ -4,9 +4,10 @@
 
 비디오에서 (dense frame sampling)조밀 조밀하게 frame sampling을 하게 되면, 거의 변화가 없는(동작이 차이가없는) 이미지들이 뽑아진다(계산량도 많다더라). 하지만 이걸로는 무슨 동작을 하고있는지 설명을 하기엔 부족하다. 그래서 (sparse sampling) 드문 드문 sampling을 한다(무작위).
 
-Deep ConvNet를 학습 시키기에는 가지고 있는 video dataset들이 적어서, 적은 양의 데이터를 가지고도 학습이 잘되게 만들려고 한거같다(Deep Conv structure가 물체인식에 성능이 더 좋다한다).
+Deep ConvNet를 학습 시키기에는 가지고 있는 video dataset들이 적어서, 적은 양의 데이터를 가지고도 학습이 잘되게 만들려고 한거같다
 
 ![TSN](./image/TSN.png "TSN")
+![twostream](./image/twostream.png "twostream")
 
 ## 네트워크 구조
 
@@ -16,6 +17,12 @@ object detection은 더 깊은 구조를 가질 수록 성능이 좋다고 나�
 
 Single RGB image은 전후 프레임에 대한 정보가 부족하다. 그래서 여기서 사용한 것이 Stacked RGB Difference.
 또 다른 인풋으로는 Warped optical flow field가 사용 되었는데, 이걸로 불필요한 카메라 모션을 제거했다. 
+
+![swim](./image/swim.gif "swim")
+![swim1](./image/swim1.gif "swim")
+
+왼쪽 비디오에서 중간에 사람을 비추는 카메라의 앵글이 바뀔 수도 있습니다. 이로인해 spatial한 정보의 포착이 바뀌는 경우가 생깁니다.
+
 
 ## 네트워크 훈련
 
