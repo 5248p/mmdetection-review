@@ -1,7 +1,7 @@
 # Two-Stream Inflated 3D ConvNet(I3D)
 
 RGB와 Optical flow를 동시에 활용한다는 면에서 Two-Stream 방법이고, 2D conv가 아니라 3D conv이기 때문에 Two-Stream Inflated 3D ConvNets이라고 정의한다. 
-RGB를 3D conv 함으로써 시간정보를 계층적으로 만들수있지만, 그래도 여전히 action을 인식하기에는 부족하기 때문에 Optical flow도 사용한다.
+RGB를 3D conv 함으로써 시간정보를 계층적으로 만들수있지만, 그래도 여전히 action을 인식하기에는 부족하기 때문에 Optical flow도 사용한다. [논문](https://arxiv.org/pdf/1705.07750.pdf)
 
 ## Inflating 2D conv into 3D
 

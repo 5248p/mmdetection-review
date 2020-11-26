@@ -1,6 +1,6 @@
 # SlowFast Network
 
-이 논문은 FAIR 그룹에서 쓴 논문이며, 저자에 Kaiming He가 있습니다.
+이 [논문](https://arxiv.org/pdf/1812.03982.pdf)은 FAIR 그룹에서 쓴 논문이며, 저자에 Kaiming He가 있습니다.
 
 ## Biological derive
 
@@ -29,9 +29,12 @@ Link: [용용님의블로그](https://m.blog.naver.com/wjddydgns99/222053470352)
 
 ![slowfastpath](./image/slowfastpath.png "slowfastpath")
 
-이 논문에서는 video recognition 에서  slow motion과 fast motion의 기여도가 다르다고 설명하고 있습니다.    
+이 논문에서는 video recognition 에서  slow motion과 fast motion의 기여도가 다르다고 설명하고 있습니다. 
+
 이런 관점에서는 spatial structure와 temporal events를 분리해서 봐야합니다.   
-Object의 identity는 바뀌지 않습니다. 그리고 이런 categorical semantic(colors,textures,lightening..etc)들은 상대적으로 느리게 인식이 됩니다.    
+
+Object의 identity는 바뀌지 않습니다. 그리고 이런 categorical semantic(colors,textures,lightening..etc)들은 상대적으로 느리게 인식이 됩니다. 
+   
 반면 Object의 모션(event)은 빠르게 변화하기 때문에 fast refreshing frame(high temporal rate)을 통해 포착하게 됩니다.
 
 <hr/>
@@ -78,4 +81,4 @@ action classification task에서의 결과는 다음과 같습니다. 평가 데
 
 
 
-출처: [ChaCha's blog](https://chacha95.github.io/2019-07-20-VideoUnderstanding6)
+참조: [ChaCha's blog](https://chacha95.github.io/2019-07-20-VideoUnderstanding6)

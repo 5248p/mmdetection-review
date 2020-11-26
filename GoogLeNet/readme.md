@@ -1,6 +1,6 @@
 # GoogLeNet
 
-ILSVRC14 당시 GoogLeNet 이라는 팀명으로 출전하였고, GoogLeNet이 inception의 여러 버전중 하나라고 밝혔는데 그중 inception-v1이 Googlenet이다.
+ILSVRC14 당시 GoogLeNet 이라는 팀명으로 출전하였고, GoogLeNet이 inception의 여러 버전중 하나라고 밝혔는데 그중 [inception-v1](https://arxiv.org/pdf/1409.4842.pdf)이 Googlenet이다.
 
 기본 CNN 구조에서의 
 1. overfitting, vanishing gradient problem.

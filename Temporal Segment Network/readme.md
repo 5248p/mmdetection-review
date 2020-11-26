@@ -1,6 +1,6 @@
 # Temporal Segment Network
 
-이 논문에서 설명하는 바로는 action recognition에서는 long-range temporal structure가 중요한데, 기존의 ConvNet들은 appearance와 short-term motion에만 집중을 해서 action video에서는 성능이 잘 안나온다라고 한다.(짧게 봐서는 무슨 동작인지 이해 못하고, 길게 봐야함)
+이 [논문](https://arxiv.org/pdf/1705.02953.pdf)에서 설명하는 바로는 action recognition에서는 long-range temporal structure가 중요한데, 기존의 ConvNet들은 appearance와 short-term motion에만 집중을 해서 action video에서는 성능이 잘 안나온다라고 한다.(짧게 봐서는 무슨 동작인지 이해 못하고, 길게 봐야함)
 
 비디오에서 (dense frame sampling)조밀 조밀하게 frame sampling을 하게 되면, 거의 변화가 없는(동작이 차이가없는) 이미지들이 뽑아진다(계산량도 많다더라). 하지만 이걸로는 무슨 동작을 하고있는지 설명을 하기엔 부족하다. 그래서 (sparse sampling) 드문 드문 sampling을 한다(무작위).
 

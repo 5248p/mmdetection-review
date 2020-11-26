@@ -1,6 +1,6 @@
 # Temporal Shift Module
 
-2D complexity로 3D CNN 성능을 내는 것을 목표로 하고 있다. TSM은 temporal dimension을 따라 채널의 일부를 이동한다. 따라서 인접 프레임간에 정보 교환을 용이하게 한다. 또한 TSM을 온라인 설정으로 확장하여 실시간 저 지연 온라인 비디오 인식 및 비디오 객체 감지를 가능하게합니다.
+이 [논문](https://arxiv.org/pdf/1811.08383.pdf)에서는 2D complexity로 3D CNN 성능을 내는 것을 목표로 하고 있다. TSM은 temporal dimension을 따라 채널의 일부를 이동한다. 따라서 인접 프레임간에 정보 교환을 용이하게 한다. 또한 TSM을 온라인 설정으로 확장하여 실시간 저 지연 온라인 비디오 인식 및 비디오 객체 감지를 가능하게합니다.
 
 *   temporal dimension :
 
