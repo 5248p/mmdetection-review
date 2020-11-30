@@ -70,7 +70,7 @@
     |50|0.01|0.77806|0.96023|
     |50|0.01|0.77002|0.96418|
 
-<img src="./image/i3d_r50_50e.png" width="450px" height="300px" title="i3d_r50_50e" alt="i3d_r50_50e"></img><br/>
+    <img src="./image/i3d_r50_50e.png" width="450px" height="300px" title="i3d_r50_50e" alt="i3d_r50_50e"></img><br/>
 
 * ## TSN
     (epoch: 100, initial lr: 0.002, dataset:952개)
@@ -88,7 +88,7 @@
     |90|0.002|0.86718|0.98220|
     |100|0.002|0.88107|0.98958|
 
-<img src="./image/1120TSN1X1X8X1600.png" width="450px" height="300px" title="1120TSN1X1X8X1600" alt="1120TSN1X1X8X1600"></img><br/>
+    <img src="./image/1120TSN1X1X8X1600.png" width="450px" height="300px" title="1120TSN1X1X8X1600" alt="1120TSN1X1X8X1600"></img><br/>
 
 * ## TSM r_101
     (epoch: 100, initial lr: 0.005, dataset:952개)
@@ -106,7 +106,7 @@
     |90|0.005|0.95941|0.99805|
     |100|0.005|0.96948|0.99935|
 
-<img src="./image/tsm_r101_954_100e.png" width="450px" height="300px" title="tsm_r101_954_100e" alt="tsm_r101_954_100e"></img><br/>
+    <img src="./image/tsm_r101_954_100e.png" width="450px" height="300px" title="tsm_r101_954_100e" alt="tsm_r101_954_100e"></img><br/>
 
 * ## TSM r_50
     (epoch: 100, initial lr: 2.000e-03, dataset: 1952개)
@@ -124,7 +124,7 @@
     |90|0.005|0.94294|0.99487|
     |100|0.005|0.96089|0.99807|
 
-<img src="./image/tsm_r50_1918_100e.png" width="450px" height="300px" title="tsm_r50_1918_100e" alt="tsm_r50_1918_100e"></img><br/>
+    <img src="./image/tsm_r50_1918_100e.png" width="450px" height="300px" title="tsm_r50_1918_100e" alt="tsm_r50_1918_100e"></img><br/>
 
 1순위와 2순위는 TSM이 모두 가져갔고 3순위가 TSN, 마지막이 slowfast이다.
 
