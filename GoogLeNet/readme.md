@@ -6,7 +6,7 @@ ILSVRC14 당시 GoogLeNet 이라는 팀명으로 출전하였고, GoogLeNet이 i
 1. overfitting, vanishing gradient problem.
 2. hyper param(filter,stride,padding등도 포함)값에 비례하여 레이어가 깊어지면 연산량이 많아짐.
 
-초기에 시도 한것이 sparse connectivity. 서로 높은 correlation을 가진 노드끼리 연결하는 방법인데, overfitting과 연산량이 개선이 된다 한다. (dropout이랑 비슷하지만 다름) 하지만 이후 dense connectivity가 발전함에 있어, 보다 나아 지지 못했고, sparse는 사용하지 않게됨.
+초기에 시도 한것이 sparse connectivity. 서로 높은 correlation을 가진 노드끼리 연결하는 방법인데, overfitting과 연산량이 개선이 된다 한다. (dropout이랑 비슷하지만 다름) 하지만 이후 dense connectivity가 발전함에 있어, 뒤로 밀리게 됐고, sparse는 사용하지 않게됨.
 
 ## Inception-v1
 
@@ -25,7 +25,7 @@ Inception module은 입력값에 대해, 4가지 종류의 Convolution, Pooling�
 4. 3x3 maxpooling + 1x1 conv
 마지막으로 이 4개를 Channel-wise concat(featuremap을 쌓는것)
 
-bottleneck으로(1x1+3x3) 연산량이 준다.
+bottleneck으로(1x1+3x3) 연산량이 줄어든다.
 
 채널의 수를 조정한다는 의미는, 채널 간의 Correlation을 연산한다는 의미이다. 
 
@@ -46,3 +46,6 @@ bottleneck으로(1x1+3x3) 연산량이 준다.
 
 * 정규화 : 모든 데이터 포인트가 동일한 정도의 스케일(중요도)로 반영되도록 해주는게 정규화(Normalization)의 목표이다.
 
+<hr/>
+
+참조: [Google Inception](https://ikkison.tistory.com/86)
