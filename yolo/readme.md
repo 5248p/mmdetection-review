@@ -21,13 +21,13 @@ YOLOv3’s AP and FPS by 10% and 12%, respectively.
 
 ![hnb](./image/hnb.png "hnb")
 
-최신 detector는 주로 백본(Backbone)과 헤드(Head)라는 두 부분으로 구성된다. 백본은 입력 이미지를 feature map으로 변형시켜주는 부분이다. ImageNet 데이터셋으로 pre-trained 시킨 VGG16, ResNet-50 등이 대표적인 Backbone이다. 헤드는 Backbone에서 추출한 feature map의 location 작업을 수행하는 부분이다. 헤드에서 predict classes와 bounding boxes 작업이 수행된다. 
+최신 detector는 주로 입력 이미지를 feature map으로 변형시켜주는 백본(Backbone)과 class 및 bounding box를 예측하는데 사용되는 헤드(Head)라는 두 부분으로 구성된다. GPU에서 구동되는 backbone은 VGG16, ResNet-50, ResNext, DenseNet 등이 있고, CPU에서 구동되는 backbone은 SqueezeNet, MobileNet, ShuffleNet 등이 있다. 헤드는 one-stage object detector와 two-stage object detector로 구분된다. 헤드에서 predict classes와 bounding boxes 작업이 수행된다. 
 
-헤드는 크게 Dense Prediction, Sparse Prediction으로 나뉘는데, 이는 Object Detection의 종류인 1-stage인지 2-stage인지와 직결된다. Sparse Prediction 헤드를 사용하는 Two-Stage Detector는 대표적으로 Faster R-CNN, R-FCN 등이 있다. Predict Classes와 Bounding Box Regression 부분이 분리되어 있는 것이 특징이다. Dense Prediction 헤드를 사용하는 One-Stage Detector는 대표적으로  YOLO, SSD 등이 있다. Two-Stage Detector와 다르게, One-Stage Detector는 Predict Classes와 Bounding Box Regression이 통합되어 있는 것이 특징이다.
+Sparse Prediction 헤드를 사용하는 Two-Stage Detector는 Faster R-CNN, R-FCN 등이 있다. Predict Classes와 Bounding Box Regression 부분이 분리되어 있는 것이 특징이다. Dense Prediction 헤드를 사용하는 One-Stage Detector는 YOLO, SSD 등이 있다. Two-Stage Detector와 다르게, One-Stage Detector는 Predict Classes와 Bounding Box Regression이 통합되어 있는 것이 특징이다.
 
 넥(Neck)은 Backbone과 Head를 연결하는 부분으로, feature map을 refinement(정제), reconfiguration(재구성)한다. 대표적으로 FPN(Feature Pyramid Network), PAN(Path Aggregation Network), BiFPN, NAS-FPN 등이 있다. 
 
-
+<hr/>
 • Input: Image, Patches, Image Pyramid
 
 • Backbones: VGG16, ResNet-50, SpineNet, EfficientNet-B0/B7, CSPResNeXt50, CSPDarknet53
@@ -50,23 +50,64 @@ NAS-FPN, Fully-connected FPN, BiFPN, ASFF, SFAM
     ◦ Faster R-CNN, R-FCN, Mask RCNN(anchor based)
    
     ◦ RepPoints(anchor free)
+<hr/>
 
-2.2. Bag of Freebies (BOF)
+### Bag of Freebies (BOF)
 
- BOF는 inference cost의 변화 없이 (공짜로) 성능 향상(better accuracy)을 꾀할 수 있는 딥러닝 기법들이다. 대표적으로 데이터 증강(CutMix, Mosaic 등)과 BBox(Bounding Box) Regression의 loss 함수(IOU loss, CIOU loss 등)이 있다. 이 기법들의 상세한 내용은 3.4 YOLO v4에서 소개하겠다.
+training strategy 혹은 training cost만 증가시켜 성능 향상을 이루는 방법을 BOF라고 부른다. Data augmentation의 한가지 방법이다.
 
- 
+* data augmentation 
 
-2.3. Bag of Specials (BOS)
+    기존 데이터의 약간 수정 된 사본 또는 기존 데이터에서 새로 생성 된 합성 데이터를 추가하여 데이터 양을 늘린다. regularizer 역할을 하여 overfitting을 줄이는데 도움을 준다.
 
- BOS는 BOF의 반대로, inference cost가 조금 상승하지만, 성능 향상이 되는 딥러닝 기법들이다. 대표적으로 enhance receptive filed(SPP, ASPP, RFB), feature integration(skip-connection, hyper-column, Bi-FPN) 그리고 최적의 activation function(P-ReLU, ReLU6, Mish)이 있다. 이 기법들의 상세한 내용도 3.4절에서 소개하겠다.
+    (논물발췌)The purpose of data augmentation is to increase the variability of the input images, so that the designed object detection model has higher robustness to the images obtained from different environments. 
+    입력 이미지의 가변성을 높여, 다른 환경에서 얻은 이미지에 대한 더 높은 robustness를 가지게 하는데 목적이 있다. 
+
+    ![dataaug](./image/dataaug.jpg "dataaug")
+
++ BOF for backbone
+    - cutmix
+    - mosaic data augmentation 
+    - dropblock regularization
+    - class label smoothing
+
++ BOF for detector
+    - CIoU-Loss
+    - CmBN(cross-mini batch normalization)
 
 
-adversarial attack
+<hr/>
+<hr/>
 
-[cutmix](https://arxiv.org/pdf/1905.04899.pdf) = image augmentation의 방법
+[cutmix](https://arxiv.org/pdf/1905.04899.pdf) : image augmentation의 방법, 한 이미지에 두개의 class를 넣은것이 특징.
 
 ![cutmix](./image/cutmix.png "cutmix")
+
+[mosaic data augmentation](https://towardsdatascience.com/data-augmentation-in-yolov4-c16bd22b2617)은 4개의 훈련 이미지를 특정 비율로 하나로 결합하고, 이를 통해 모델은 정상보다 작은 규모로 물체를 식별하는 방법을 배울 수 있다. 또한 모델이 프레임의 다른 부분에서 다른 유형의 이미지를 localize하도록 도움을 준다.
+
+![mosaicdataaug](./image/mosaicdataaug.png "mosaicdataaug")
+
+[dropblock regularization](https://norman3.github.io/papers/docs/dropblock.html) feature의 일정 범위를 drop 시킴. (dropout과는 차이가 있다) overfitting 방지
+
+![dropblockalgo](./image/dropblockalgo.png "dropblockalgo")
+
+[class label smoothing](https://3months.tistory.com/465) 이미지 라벨링을 할때는 사람이 하는데, 이떄 miss labeling하는 일이 발생 할수있다. 이때 0 또는 1(맞다/틀리다)가 아닌 값을 smooth하게 부여함으로써 regularization과 overfitting에 도움을 준다. 
+
+![labelsmooth](./image/labelsmooth.png "labelsmooth")
+
+[Ciou loss](https://arxiv.org/pdf/1911.08287.pdf)
+
+
+<hr/>
+<hr/>
+
+### Bag of Specials (BOS)
+
+ BOS는 BOF의 반대로, inference cost가 조금 상승하지만, 성능 향상이 되는 딥러닝 기법들이다. 대표적으로 enhance receptive filed(SPP, ASPP, RFB), feature integration(skip-connection, hyper-column, Bi-FPN) 그리고 최적의 activation function(P-ReLU, ReLU6, Mish)이 있다.
+
+
+
+
 
 
 이미지의 일부를 다른 이미지에서 따온 patch로 대체한다. (mixup이나 cutout 보다 더나음)
@@ -74,10 +115,39 @@ adversarial attack
 data augmentation의 유일한 목적은 입력 이미지의 가변성을 증가시켜 설계된 물체 감지 모델이 다른 환경에서 얻은 이미지에 대해 더 높은 견고성을 갖도록 하는 것입니다.
 
 
++ BOS for backbone
+    - mish activation
+    - CSP(cross-stage partial connections)
+    - MiWRC(multi-input weighted residual connections)
+
++ BOS for detector
+    - SPP-block
+    - SAM-block
+    - PAN(path-aggregation)
+    - DIou-NMS
 
 
+##### // softplus(x) = ln(1 + e^x)
 
+[mish activation](https://arxiv.org/pdf/1908.08681.pdf) f(x) = x * tanh(softpuls(x)). 활성화 함수이다. 많은 연구에서 mish가 relu나 sigmoid, swish보다 더 나은 성능을 보인다고 한다.
 
+장점으로는 
+* 0에 가까운 기울기로 인해, 훈련 속도가 급격히 느려지는 포화(Saturation) 문제 방지
+* 강한 규제(Regularation) 효과로 overfitting 문제 방지
+* ReLU has an order of continuity as zero i.e it is not continuously differentiable and many cause some problems in gradient based optimization which is not in the case of Mish.
+
+![mish](./image/mish.png "mish")
+
+##### 활성화함수 비교
+![actfunc](./image/actfunc.png "actfunc")
+
+[CSP](https://arxiv.org/pdf/1911.11929.pdf) 경량화. 연산량을 줄이는 작업이다. [참조](https://keyog.tistory.com/30)
+
+![csp](./image/csp.png "csp")
+
+[MiWRC]()
+
+[SPP block]()
 
 
 1) Backbone : CSP-Darkent53
@@ -101,3 +171,21 @@ data augmentation의 유일한 목적은 입력 이미지의 가변성을 증가
 
 
 [YOLO v4 리뷰 : Optimal Speed and Accuracy of Object Detection (공부중)](https://ropiens.tistory.com/33)
+
+
+[Examples of data augmentation](https://dalpo0814.tistory.com/17)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+adversarial attack
