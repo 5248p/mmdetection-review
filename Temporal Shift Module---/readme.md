@@ -1,6 +1,6 @@
 # Temporal Shift Module
 
-이 [논문](https://arxiv.org/pdf/1811.08383.pdf)에서는 2D complexity로 3D CNN 성능을 내는 것을 목표로 하고 있다. TSM은 temporal dimension을 따라 채널의 일부를 이동한다. 따라서 인접 프레임간에 정보 교환을 용이하게 한다. 또한 TSM을 온라인 설정으로 확장하여 실시간 저 지연 온라인 비디오 인식 및 비디오 객체 감지를 가능하게합니다.
+이 [논문](https://arxiv.org/pdf/1811.08383.pdf)에서는 2D complexity로 3D CNN 성능을 내는 것을 목표로 하고 있다. TSM은 temporal dimension을 따라 채널의 일부를 이동한다. 따라서 인접 프레임간에 정보 교환을 용이하게 한다.
 
 *   temporal dimension :
 
@@ -14,7 +14,7 @@
 
 * FIG1. TSM (Temporal Shift Module)은 temporal dimension을 따라 feature map을 이동하여 효율적인 temporal modeling을 수행한다. 2D 컨볼 루션 위에 computationally free이지만 강력한 temporal modeling링 능력을 달성한다. 양방향 TSM은 과거 및 미래 프레임을 현재 프레임과 혼합하여 처리량이 많은 오프라인 비디오 인식에 적합하다. 단방향 TSM은 지연 시간이 짧은 온라인 비디오 인식에 적합한 현재 프레임과 과거 프레임만 혼합한다.
 
-TSM (Temporal Shift Module)은 temporal dimension을 따라 앞뒤로 채널을 이동합니다. 그림 1b와 같이 주변 프레임의 정보는 이동 후 현재 프레임과 섞입니다. 우리의 직관은 : 컨볼 루션 연산은 이동과 곱하기-누적으로 구성된다.
+TSM (Temporal Shift Module)은 temporal dimension을 따라 앞뒤로 채널을 이동합니다. 그림 1b와 같이 주변 프레임의 정보는 이동 후 현재 프레임과 섞이게 된다.
 
 We shift in the time dimension by ±1 and fold the multiply accumulate from time dimension to channel dimension.
 시간 차원에서 ± 1만큼 이동하고 누적 된 곱셈을 시간 차원에서 채널 차원으로 fold한다. 실시간 온라인 비디오 이해를 위해 향후 프레임은 현재로 이동할 수 없으므로 단방향 TSM (그림 1c)을 사용하여 온라인을 수행한다.

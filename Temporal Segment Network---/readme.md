@@ -17,13 +17,13 @@ object detection은 더 깊은 구조를 가질 수록 성능이 좋다고 나�
 
 입력 양식의 네 가지 유형의 예 : RGB 이미지, RGB 차이, optical flow field (x, y 방향) 및 warped optical flow (x, y 방향)
 
-Single RGB image은 전후 프레임에 대한 정보가 부족하다. 그래서 여기서 사용한 것이 Stacked RGB Difference.
+Single RGB image는 전후 프레임에 대한 정보가 부족하다. 그래서 여기서 사용한 것이 Stacked RGB Difference.
 또 다른 인풋으로는 Warped optical flow field가 사용 되었는데, 이걸로 불필요한 카메라 모션을 제거했다. 
 
 ![swim](./image/swim.gif "swim")
 ![swim1](./image/swim1.gif "swim")
 
-왼쪽 비디오에서 중간에 사람을 비추는 카메라의 앵글이 바뀔 수도 있습니다. 이로인해 spatial한 정보의 포착이 바뀌는 경우가 생깁니다.
+##### 왼쪽 비디오처럼 중간에 사람을 비추는 카메라의 앵글이 바뀌는 경우가 많이 있을것이다. 이로인해 spatial한 정보의 포착이 바뀌는 경우가 생김.
 
 
 ## 네트워크 훈련

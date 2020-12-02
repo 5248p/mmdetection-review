@@ -149,3 +149,4 @@ TSM이 애초부터 적은 데이터셋에서도 성능이 잘나오게 설계�
 
 기존에 학습되어져 있는 모델에 추가 데이터를 투입하여 파라미터를 업데이트(미세조정)
 
+<img src="./image/hnb.png" width="750px" height="400px" title="hnb" alt="hnb"></img><br/>
