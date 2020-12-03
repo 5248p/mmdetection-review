@@ -5,7 +5,9 @@
 
 [youtube](https://www.youtube.com/watch?v=_JzOFWx1vZg)
 
-[yolo v4](https://arxiv.org/pdf/2004.10934.pdf)는 다른 최신 네트워크들이 가지는 특징인 높은 정확도를 가지지만 낮은 FPS와 큰 mini-batch-size를 가져 많은 GPU 수가 필요한점을 개선하는데 초점을 맞췄다. 
+[yolo v4](https://arxiv.org/pdf/2004.10934.pdf)는 다른 최신 네트워크들이 가지는 특징인 높은 정확도를 가지지만 낮은 [FPS](#frames-per-second)와 큰 mini-batch-size를 가져 많은 GPU 수가 필요한점을 개선하는데 초점을 맞췄다. 
+
+
 
 ![yolo1](./image/yolo1.png "yolo1")
 
@@ -61,7 +63,7 @@ training strategy 혹은 training cost만 증가시켜 성능 향상을 이루�
     기존 데이터의 약간 수정 된 사본 또는 기존 데이터에서 새로 생성 된 합성 데이터를 추가하여 데이터 양을 늘린다. regularizer 역할을 하여 overfitting을 줄이는데 도움을 준다.
 
     (논물발췌)The purpose of data augmentation is to increase the variability of the input images, so that the designed object detection model has higher robustness to the images obtained from different environments. 
-    입력 이미지의 가변성을 높여, 다른 환경에서 얻은 이미지에 대한 더 높은 robustness를 가지게 하는데 목적이 있다. 
+    입력 이미지의 가변성을 높여, 다른 환경에서 얻은 이미지에 대한 더 높은 robustness(튼튼한?탄탄한?)를 가지게 하는데 목적이 있다. 
 
     ![dataaug](./image/dataaug.jpg "dataaug")
 
@@ -147,8 +149,17 @@ data augmentation의 유일한 목적은 입력 이미지의 가변성을 증가
 
 [MiWRC]()
 
-[SPP block]()
+[SPP block](https://arxiv.org/pdf/1406.4729.pdf) 기본 CNN에서는 fixed input size가 필요한데, 이는 마지막의 fc layer 때문이다. spp를 적용하면 fixed input image를 요구하는 것을 제거 할수있다.
 
+![spp](./image/spp.png "spp")
+
+[SAM block]()
+
+[PAN](https://arxiv.org/pdf/1803.01534.pdf) FPN을 backbone으로 사용했다. 
+
+![pannet](./image/pannet.png "pannet")
+
+[DIou NMS](https://arxiv.org/pdf/1911.08287.pdf)
 
 1) Backbone : CSP-Darkent53
 
@@ -156,14 +167,6 @@ data augmentation의 유일한 목적은 입력 이미지의 가변성을 증가
 
 3) Head : YOLO-v3 
 
-1) WRC (weighted-residual-connections)
-2) CSP (cross-stage-partial-connections)
-3) CmBN (cross mini batch normalization)
-4) SAT (self-adversarial-training)
-5) Mish Activation
-6) Mosaic Data Agumentation
-7) Drop Block REgularization
-8) CIOU Loss
 
 
 
@@ -189,3 +192,8 @@ data augmentation의 유일한 목적은 입력 이미지의 가변성을 증가
 
 
 adversarial attack
+
+<hr/>
+<hr/>
+
+* #### Frames Per Second : 영상에서 매 초당 보여지는 이미지 장면의 수.
