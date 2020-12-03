@@ -92,7 +92,7 @@ training strategy 혹은 training cost만 증가시켜 성능 향상을 이루�
 
 * [class label smoothing](https://3months.tistory.com/465) 이미지 라벨링을 할때는 사람이 하는데, 이떄 miss labeling하는 일이 발생 할수있다. 이때 0 또는 1(맞다/틀리다)가 아닌 값을 smooth하게 부여함으로써 regularization과 overfitting에 도움을 준다. 
 
-    <img src="./image/labelsmooth.png" width="500px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
+    <img src="./image/labelsmooth.png" width="600px" height="350px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
 
 * [Ciou loss](https://arxiv.org/pdf/1911.08287.pdf)
 
