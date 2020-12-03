@@ -137,6 +137,11 @@ TSM이 애초부터 적은 데이터셋에서도 성능이 잘나오게 설계�
 * Data imbalance가 심하다(body lower 동작이 500개이고 arch,body scratch동작이 5개 밖에 안됨) 많은 동작들을 잘라서(약 150개 정도) 훈련 시도.
 * imbalance가 심하지만, accuracy는 잘 나온다. 데이터가 없는 부분에 대해서는 data augmentation을 적용해 보는것이 어떨까.
 
+#### 12/03 Thur
++ 전처리할게 너무 많다.
++ yolo v5용 데이터 format을 만들었다. 박스 이쁘게 잘 잡는다. 70% 
++ object detection. 프레임 5장씩 뽑아서 훈련. 거꾸로간다.
+
 
 ## 3.2 파이널
 
