@@ -96,7 +96,10 @@ training strategy 혹은 training cost만 증가시켜 성능 향상을 이루�
 
 * [Ciou loss](https://arxiv.org/pdf/1911.08287.pdf)
 
-* [CmBN]()
+* CmBN
+
+    <img src="./image/cmbn.png" width="700px" height="450px" title="px(픽셀) 크기 설정" alt="cmbn"></img><br/>
+
 
 <hr/>
 <hr/>
@@ -144,6 +147,19 @@ training strategy 혹은 training cost만 증가시켜 성능 향상을 이루�
 
 [DIou NMS](https://arxiv.org/pdf/1911.08287.pdf)
 
+• Bounding Box Regression [참조](https://jjeamin.github.io/darknet_book/part1_paper/yolov4.html)
+
++ iOU(Intersection over union) is the ratio of predicted bounding box overlapping over the ground truth area box.
+
+* [GIOU(Generalized Intersection over Union)](https://arxiv.org/pdf/1902.09630.pdf)
+
+* CIOU(Complete Intersection over Union)
+
+* [DIOU(Distance Intersection over Union)](https://arxiv.org/pdf/1911.08287.pdf)
+
+
+![bbr](./image/bbr.png "bbr")
+
 * [NMS](https://dyndy.tistory.com/275) 딥러닝을 이용한 Object Detection에서는 대부분 각종 boundingbox + 각 box에 object가 있을 확률 (class별 확률)들이 나오게 되는데, 이중 겹치는 부분(차 한대에 여러가지 boundingbox가 그려지는 경우와 같은)을 제거하기 위한 방법으로 사용된다. 
 
 ![nmsbefore](./image/nmsbefore.jpg "nmsbefore")
@@ -180,9 +196,10 @@ training strategy 혹은 training cost만 증가시켜 성능 향상을 이루�
 
 ## Experiment
 
-##### experiment setup
-
+##### setup
 <img src="./image/expsetup.png" width="700px" height="400px" title="px(픽셀) 크기 설정" alt="expsetup"></img><br/>
+
+<img src="./image/sampan.png" width="600px" height="700px" title="px(픽셀) 크기 설정" alt="sampan"></img><br/>
 
 classification에는 ImageNet 데이터를 사용하고, object detection에는 MS COCO 데이터셋을 사용하였다.
 
@@ -212,6 +229,10 @@ classification에는 ImageNet 데이터를 사용하고, object detection에는 
 
 
 [갈아먹는 Object Detection](https://yeomko.tistory.com/14)
+
+[darknet book](https://jjeamin.github.io/darknet_book/part1_paper/yolov4.html)
+
+
 
 
 
