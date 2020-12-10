@@ -110,7 +110,7 @@ training strategy 혹은 training cost만 증가시켜 성능 향상을 이루�
 
 <img src="./image/bos.png" width="600px" height="600px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
 
-* receptive field : 필터가 한 번에 보는 영영으로 볼 수 있는데, 결국 필터를 통해 어떤 사진의 전체적인 특징을 잡아내기 위해서는 receptive field는 높으면 높을 수록 좋다. 그렇다고 필터의 크기를 크게하면 연산의 양이 크게 늘어나고, 오버피팅의 우려가있다. [참조](https://3months.tistory.com/213)
+* receptive field : 필터가 한 번에 보는 영역으로 볼 수 있는데, 결국 필터를 통해 어떤 사진의 전체적인 특징을 잡아내기 위해서는 receptive field는 높으면 높을 수록 좋다. 그렇다고 필터의 크기를 크게하면 연산의 양이 크게 늘어나고, 오버피팅의 우려가있다. [참조](https://3months.tistory.com/213)
 
 * activation function : 인공신경망에서 입력받은 데이터를 다음층으로 출력할지를 결정하는 역할. [참조](https://saintbinary.tistory.com/8)
 
@@ -212,9 +212,6 @@ classification에는 ImageNet 데이터를 사용하고, object detection에는 
 <img src="./image/table6.png" width="700px" height="400px" title="px(픽셀) 크기 설정" alt="table6"></img><br/>
 
 <img src="./image/table7.png" width="700px" height="400px" title="px(픽셀) 크기 설정" alt="imageclastable7sification"></img><br/>
-
-## Conclusion
-
 
 
 <hr/>
